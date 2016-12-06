@@ -2,11 +2,11 @@ Flush(false) db not started
 StopNode()
 Flushed 0 addresses to peers.dat  10ms
 Flush(true) db not started
-SmallChange exited
+CreativeCoin exited
 
 Flush(false) db not started
 StopNode()
 Flushed 0 addresses to peers.dat  1ms
 Flush(true) db not started
-SmallChange exited
+CreativeCoin exited
 
