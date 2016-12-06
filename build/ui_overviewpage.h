@@ -115,7 +115,7 @@ public:
         font1.setWeight(75);
         labelBalance->setFont(font1);
         labelBalance->setCursor(QCursor(Qt::IBeamCursor));
-        labelBalance->setText(QString::fromUtf8("0 SMC"));
+        labelBalance->setText(QString::fromUtf8("0 CREA"));
         labelBalance->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayout_2->setWidget(0, QFormLayout::FieldRole, labelBalance);
@@ -129,7 +129,7 @@ public:
         labelUnconfirmed->setObjectName(QString::fromUtf8("labelUnconfirmed"));
         labelUnconfirmed->setFont(font1);
         labelUnconfirmed->setCursor(QCursor(Qt::IBeamCursor));
-        labelUnconfirmed->setText(QString::fromUtf8("0 SMC"));
+        labelUnconfirmed->setText(QString::fromUtf8("0 CREA"));
         labelUnconfirmed->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayout_2->setWidget(1, QFormLayout::FieldRole, labelUnconfirmed);
@@ -153,7 +153,7 @@ public:
         labelImmature = new QLabel(frame);
         labelImmature->setObjectName(QString::fromUtf8("labelImmature"));
         labelImmature->setFont(font1);
-        labelImmature->setText(QString::fromUtf8("0 SMC"));
+        labelImmature->setText(QString::fromUtf8("0 CREA"));
         labelImmature->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayout_2->setWidget(2, QFormLayout::FieldRole, labelImmature);
