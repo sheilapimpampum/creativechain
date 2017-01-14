@@ -482,8 +482,8 @@ bool CTxMemPool::accept(CTxDB& txdb, CTransaction &tx, bool fCheckInputs,
     if (pfMissingInputs)
         *pfMissingInputs = false;
 
-    if (!tx.CheckTransaction())
-        return error("CTxMemPool::accept() : CheckTransaction failed");
+    //if (!tx.CheckTransaction())
+      //  return error("CTxMemPool::accept() : CheckTransaction failed");
 
     // Coinbase is only valid in a block, not as a loose transaction
     if (tx.IsCoinBase())
