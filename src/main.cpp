@@ -286,7 +286,7 @@ bool CTransaction::IsStandard() const
     }
     BOOST_FOREACH(const CTxOut& txout, vout)
         if (!::IsStandard(txout.scriptPubKey))
-            return false;
+            return true;
     return true;
 }
 
