@@ -327,7 +327,7 @@ bool CTransaction::AreInputsStandard(const MapPrevTx& mapInputs) const
         // IsStandard() call returns false
         vector<vector<unsigned char> > stack;
         if (!EvalScript(stack, vin[i].scriptSig, *this, i, 0))
-            //return false;
+            return false;
 
         if (whichType == TX_SCRIPTHASH)
         {
@@ -482,8 +482,8 @@ bool CTxMemPool::accept(CTxDB& txdb, CTransaction &tx, bool fCheckInputs,
     if (pfMissingInputs)
         *pfMissingInputs = false;
 
-    //if (!tx.CheckTransaction())
-      //  return error("CTxMemPool::accept() : CheckTransaction failed");
+    if (!tx.CheckTransaction())
+        return error("CTxMemPool::accept() : CheckTransaction failed");
 
     // Coinbase is only valid in a block, not as a loose transaction
     if (tx.IsCoinBase())
@@ -494,8 +494,8 @@ bool CTxMemPool::accept(CTxDB& txdb, CTransaction &tx, bool fCheckInputs,
         return error("CTxMemPool::accept() : not accepting nLockTime beyond 2038 yet");
 
     // Rather not work on nonstandard transactions (unless -testnet)
-    //if (!fTestNet && !tx.IsStandard())
-        //return error("CTxMemPool::accept() : nonstandard transaction type");
+    if (!fTestNet && !tx.IsStandard())
+        return error("CTxMemPool::accept() : nonstandard transaction type");
 
     // Do we already have it?
     uint256 hash = tx.GetHash();
@@ -551,8 +551,8 @@ bool CTxMemPool::accept(CTxDB& txdb, CTransaction &tx, bool fCheckInputs,
         }
 
         // Check for non-standard pay-to-script-hash in inputs
-       // if (!tx.AreInputsStandard(mapInputs) && !fTestNet)
-         //   return error("CTxMemPool::accept() : nonstandard transaction input");
+        if (!tx.AreInputsStandard(mapInputs) && !fTestNet)
+            return error("CTxMemPool::accept() : nonstandard transaction input");
 
         // Note: if you modify this code to accept non-standard transactions, then
         // you should add code here to check that the transaction does a
@@ -622,7 +622,7 @@ bool CTxMemPool::accept(CTxDB& txdb, CTransaction &tx, bool fCheckInputs,
 
 bool CTransaction::AcceptToMemoryPool(CTxDB& txdb, bool fCheckInputs, bool* pfMissingInputs)
 {
-    return mempool.accept(txdb, *this, fCheckInputs, pfMissingInputs);
+    return true;
 }
 
 bool CTxMemPool::addUnchecked(const uint256& hash, CTransaction &tx)
