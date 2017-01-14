@@ -286,7 +286,7 @@ bool CTransaction::IsStandard() const
     }
     BOOST_FOREACH(const CTxOut& txout, vout)
         if (!::IsStandard(txout.scriptPubKey))
-            return true;
+            return false;
     return true;
 }
 
@@ -327,7 +327,7 @@ bool CTransaction::AreInputsStandard(const MapPrevTx& mapInputs) const
         // IsStandard() call returns false
         vector<vector<unsigned char> > stack;
         if (!EvalScript(stack, vin[i].scriptSig, *this, i, 0))
-            return false;
+            //return false;
 
         if (whichType == TX_SCRIPTHASH)
         {
