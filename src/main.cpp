@@ -699,7 +699,7 @@ int CMerkleTx::GetBlocksToMaturity() const
 {
     if (!IsCoinBase())
         return 0;
-    return max(0, (COINBASE_MATURITY+10) - GetDepthInMainChain());
+    return max(0, (COINBASE_MATURITY+3) - GetDepthInMainChain());
 }
 
 
@@ -832,38 +832,38 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     //afer 1 year reward
     int64 nSubsidy = 55 * COIN;
 
-    //Creativechain reward design with fibonachi progress th firt year
+    //Creativechain reward design with fibonachi progress the firt year
     if(nHeight < 2) // The first block pre-mine, for the manteniance of the plattform and incentive the content publication
-     nSubsidy = 18600000 * COIN;;
+     nSubsidy = 18600000 * COIN;
     if(nHeight < 28800 && nHeight > 1) 
      nSubsidy = 1 * COIN;;
     if(nHeight <= 86400 && nHeight > 57500) 
-     nSubsidy = 2 * COIN;;
+     nSubsidy = 2 * COIN;
     if(nHeight <= 115200 && nHeight > 86400) 
-     nSubsidy = 3 * COIN;;
+     nSubsidy = 3 * COIN;
      if(nHeight <= 144000 && nHeight > 115200) 
-     nSubsidy = 5 * COIN;;
+     nSubsidy = 5 * COIN;
      if(nHeight <= 172800 && nHeight > 144000) 
-     nSubsidy = 8 * COIN;;
+     nSubsidy = 8 * COIN;
      if(nHeight <= 201600 && nHeight > 172800) 
-     nSubsidy = 13 * COIN;;
+     nSubsidy = 13 * COIN;
      if(nHeight <= 230400 && nHeight > 201600) 
-     nSubsidy = 21 * COIN;;
+     nSubsidy = 21 * COIN;
      if(nHeight <= 259200 && nHeight > 230400) 
-     nSubsidy = 34 * COIN;;
+     nSubsidy = 34 * COIN;
      if(nHeight <= 288000 && nHeight > 259200) 
-     nSubsidy = 55 * COIN;;
+     nSubsidy = 55 * COIN;
 
     if(nHeight > 1116900 && nHeight <= 2233800) 
-        nSubsidy = 27.5 * COIN;;
+        nSubsidy = 27.5 * COIN;
     if(nHeight > 2233800 && nHeight <= 3350700 ) 
-        nSubsidy = 13.75 * COIN;;
+        nSubsidy = 13.75 * COIN;
     if(nHeight > 3350700 && nHeight <= 4467600) 
-        nSubsidy = 6.875 * COIN;;
+        nSubsidy = 6.875 * COIN;
     if(nHeight > 4467600 && nHeight <=   5584500) 
-    nSubsidy = 3.4 * COIN;;
+    nSubsidy = 3.4 * COIN;
     if(nHeight > 5584500) 
-    nSubsidy = 1 * COIN;;
+    nSubsidy = 1 * COIN;
 
     return nSubsidy + nFees;
 }
