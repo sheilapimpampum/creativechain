@@ -35,7 +35,7 @@ class CNode;
 
 // for now, we leave the block size at 1 MB, meaning we support roughly 2400 transactions
 // per block, which means about 160 tps
-static const unsigned int MAX_BLOCK_SIZE = 4000000;
+static const unsigned int MAX_BLOCK_SIZE = 1000000;
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;
 static const unsigned int MAX_BLOCK_SIGOPS = MAX_BLOCK_SIZE/50;
 static const unsigned int MAX_ORPHAN_TRANSACTIONS = MAX_BLOCK_SIZE/100;
