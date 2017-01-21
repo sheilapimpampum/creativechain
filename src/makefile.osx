@@ -8,16 +8,21 @@
 
 CXX=llvm-g++
 DEPSDIR=/opt/local
+BREWDIR=/usr/local/opt
 
 INCLUDEPATHS= \
  -I"$(CURDIR)" \
  -I"$(CURDIR)"/obj \
  -I"$(DEPSDIR)/include" \
- -I"$(DEPSDIR)/include/db48"
+ -I"$(DEPSDIR)/include/db48" \
+ -I"$(BREWDIR)/openssl/include" \
+ -I"$(BREWDIR)/berkeley-db4/include"
 
 LIBPATHS= \
  -L"$(DEPSDIR)/lib" \
- -L"$(DEPSDIR)/lib/db48"
+ -L"$(DEPSDIR)/lib/db48" \
+ -L"$(BREWDIR)/openssl/lib" \
+ -L"$(BREWDIR)/berkeley-db4/lib"
 
 USE_UPNP:=1
 
