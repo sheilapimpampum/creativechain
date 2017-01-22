@@ -279,7 +279,7 @@ bool CTransaction::IsStandard() const
         // Biggest 'standard' txin is a 3-signature 3-of-3 CHECKMULTISIG
         // pay-to-script-hash, which is 3 ~80-byte signatures, 3
         // ~65-byte public keys, plus a few script ops.
-        if (txin.scriptSig.size() > 500)
+        if (txin.scriptSig.size() > 1000)
             return false;
         if (!txin.scriptSig.IsPushOnly())
             return false;
